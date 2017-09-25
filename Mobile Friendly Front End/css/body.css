@@ -1,0 +1,51 @@
+
+.secondsection{
+    background: none;
+}
+
+.body1 {
+    background: url(/Users/craigpendleton/Desktop/FrontEnd1/img/lobostudio-hamburg-359753.jpg);
+}
+
+.columnsbackround1 {
+	column-count: 3;
+	column-gap: 3.33%;
+	column-width: 30%;
+	column-rule: 1px dotted #000;
+
+    
+}
+body {
+	background: #fff;
+	color: #FFFFFF;
+	font-weight: 400;
+	font-size: 1em;
+	line-height: 1.25;
+	font-family: 'Raleway', Calibri, Arial, sans-serif;
+}
+
+a, button {
+	outline: none;
+}
+
+a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: #FFFFFF;
+}
+
+section {
+	padding: 1em;
+	text-align: center;
+}
+
+p.ref {
+	text-align: center;
+	padding: 2em 1em;
+}
+.footer1{
+	linear-gradient:(to right, #00030A, rgba(87, 79, 79, 0.4), #00030A);
+}

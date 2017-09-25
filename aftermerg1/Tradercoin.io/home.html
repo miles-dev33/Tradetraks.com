@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<!-- this makes the elements scalable -->
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Animated Background Headers | Demo 1</title>
+		<meta name="description" content="Examples for creative website header animations using Canvas and JavaScript" />
+		<meta name="keywords" content="header, canvas, animated, creative, inspiration, javascript" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/ghost-button.css"/>
+		<link rel="stylesheet" type="text/css" href="css/hover-button.css"/>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="style.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+		<link rel="stylesheet" type="text/css" href="css/signup.css"/>
+		<link rel="stylesheet" type="text/css" href="css/signup.css"/>
+		<!--[if IE]>
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+	</head>
+	<body>
+		<!-- NAV BAR -->
+			<ul >
+					<li><a href="#home">Home</a></li>
+					<li><a href="../Tradercoin.io/exchange.js">Exchange</a></li>
+					<li class="dropdown">
+					  <a href="javascript:void(0)" class="dropbtn">EN</a>
+					  <div class="dropdown-content">
+						<a href="#">ENGLISH</a>
+						<a href="#">日本語 - JAPANESE</a>
+						<a href="#">ESPAÑOL</a>
+						<a href="#"> РУССКИЙ - RUSSIAN </a>
+						<a href="#">ITALIANO</a>
+						<a href="#">FRANCIAS</a>
+						<a href="#">DEUTSCH</a>
+						<a href="#">한국어 - KOREAN</a>
+						<a href="#">中文 - CHINESE</a>
+					  </div>
+					</li>
+
+					<!-- <div style="float:right;">	<li><a hfref = "#">	 Sign Up </a> <li> </div> -->
+
+						
+						<div style="float:right;">	
+							<li><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+								<a>Sign Up</a></button> <li> </div>
+
+
+						
+						<div id="id01" class="modal">
+						  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+						  <form class="modal-content animate" action="/login" method="post">
+							<div class="container">
+							  <label><b>Email</b></label>
+							  <input type="text" placeholder="Enter Email" name="email" required>
+						
+							  <label><b>Password</b></label>
+							  <input type="password" placeholder="Enter Password" name="psw" required>
+						
+							  <label><b>Repeat Password</b></label>
+							  <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+							  <input type="checkbox" checked="checked"> Remember me
+							  <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+						
+							  <div class="clearfix">
+								<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+								<button type="submit" class="signupbtn">Sign Up</button>
+							  </div>
+							</div>
+						  </form>
+						</div>
+						
+						<script>
+						// Get the modal
+						var modal = document.getElementById('id01');
+						
+						// When the user clicks anywhere outside of the modal, close it
+						window.onclick = (event) => {
+							if (event.target == modal) {
+								modal.style.display = "none";
+							}
+						}
+						</script>
+
+					<!-- <li><a hfref = "#"  class="signup"> Sign Up </a> <li> -->
+				
+								<!-- <div style="position:absolute;top:0%;right:20px;width:40px;height:40px;"> Sign Up </a> <li> </div> -->
+							
+				  </ul>
+
+
+
+
+
+
+		<div class="container demo-1">
+			<div class="content">
+				<div id="large-header" class="large-header">
+					<canvas id="demo-canvas"></canvas>
+				  <!--	<h1 class="main-title">TRADE <span class="thin">Traks</span></h1> -->
+					  <h1 class="main-title">TRADETRAKS <br>
+						
+						<span class = "thin">  ICO COUNTDOWN</span>
+						<p id="demo">
+							<script>
+									// Set the date we're counting down to
+										var countDownDate = new Date("Nov 1, 2017 15:37:25").getTime();
+					
+									// Update the count down every 1 second
+										var x = setInterval(function() {
+					
+									 // Get todays date and time
+											  var now = new Date().getTime();
+					
+											 // Find the distance between now an the count down date
+												  var distance = countDownDate - now;
+					
+											  // Time calculations for days, hours, minutes and seconds
+										  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+										  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+										  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+											  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+											
+					
+											  //changes clock to red?
+											  function colorElementRed(demo) {
+													  var el = document.getElementById(demo);
+												  el.style.color = "red";
+					}
+												  // Display the result in the element with id="demo"
+												  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+											  + minutes + "m " + seconds + "s ";
+											  
+											  
+					
+													  // If the count down is finished, write some text
+															  if (distance < 0) {
+															clearInterval(x);
+															document.getElementById("demo").innerHTML = "EXPIRED";
+															  }
+																}, 1000);
+							</script>
+						
+						
+						</p>
+						<img style = "z-index:2000" src="img/logo.png">
+					  </h1>
+					 
+<!-- 
+					  <p>			
+						   GREEN ROUNDED BUTTONS 
+			<!-- <button class="button" style="vertical-align: middle; margin-top: -224px; margin-left: 371px;"><span>White Pages </span></button>
+			</p>
+			<p>
+			<button1 class="button" style="vertical-align: middle; margin-top: -1103px; margin-left: 692px;"><span>Sign Up Now</span></button1>
+			</p>
+			<p>
+				<button1 class="button" style="vertical-align: middle; margin-top: -1180px; margin-left: 992px;"><span>Tradeable Cryptos</span></button1>
+			</p> --> 
+					</div>
+
+			</div>
+
+
+	</body>
+						
+			<section>
+				<div class="row" style = "height: 1000px" style = "background-color:#F0F0F0">
+			
+
+					<div class="column" style = "padding-top:300px">
+						<img src="img/coins1600.png" style="width:300px;height:162px;"/>
+						<h2>Tradercoin and Tradetokens</h2>
+						<p>The Tradercoin will be constructed on it's own block-chain, mineable, and able to trade with any other cryptocurrency. 
+							While Tradetokens will represent a piece of Tradetrak, which will follow the valuation of Tradetraks. </p>
+					</div>
+					
+
+
+					<div class="column" style = "padding-top:200px">
+							<img src="img/exchange3.png" style="width:600px;height:250px;"/>
+						<h2>Our exchange</h2>
+						<p><a href = "http://localhost:8080/currentprices"> <b>Tradetraks exchange</b></a> will allow traders to buy and sell their cryptocurrency in the decentralized market of crypto's. Also, 
+							in their backend user accounts they will also be able to buy Tradetokens, and subscribe with Etherium, and Bitcoin to use
+							the backend trading algorithms, news updates, and mobile alerts for trades on the go. Here is an example of real time 
+							<a href = "C:\Users\miles\Desktop\Tradetraks.com\apidata\streamer\trade\index.html"><b> BTC data</b> </a>
+						</p>
+					</div>
+
+					<div class="column" style = "padding-top:168px">
+						
+						
+						<img src="img/algorithm.jpg" style="width:300px;height:300px;"/>
+						<h2>Our algorithm</h2>
+						<p>TradeTraks is a new and improved cryptocurrency exchange business model supplied with 
+								<a href = "C:\Users\miles\Desktop\Tradetraks.com\apidata\analysis\BTC\index.html"><b>  technical analysis</b></a> of the stock trading 
+							world to cryptocurrencies and the foreign exchange market providing real time data with some of the most advanced algorithmic
+							screening software</p>
+					</div>
+
+				</div>
+			</section>
+
+
+				
+				<!--START OF MILES BIT PICS-->
+			
+			<!-- <div style = "background: linear-gradient(to right, #314755, #26a0da)"> -->
+				<div style = "background: linear-gradient(to right, #1a2980, #26d0ce)">
+					<section class="related"  style = "height:1000px">
+				
+						<p style = "padding-top:200px" >
+					
+								We are accepting <strong>ETH</strong>,<strong> BTC</strong> as sponsorship and Tradetokens.<br>
+								<br>
+								<br>
+									Our backend software is a decentralized crypto and forex screener.<br>
+									The algorithm for getting text and email trade alerts is running in real time,<br>
+									and it is on the blockchain. </p>
+								<a href="http://tympanus.net/Development/HeaderEffects/">
+								<img src="https://ownx.com/wp-content/uploads/2017/01/bitcoin.png" style="width:300px;height:162px;"/>
+								<h3 style = "color:white">Our software will be the best on the market, and we off the only forex and crypto real time technicalysis screening algorithm on the market.</h3>
+							</a>
+							<a href="http://tympanus.net/Development/ArticleIntroEffects/">
+								<img src="http://www.freedolina.net/file/2017/05/Stock-Market-News-Today3.jpg"  style="width:300px;height:162px;"/>
+								<h3 style = "color:white"> Our software will be the best on the market, and we off the only forex and crypto real time technicalysis screening algorithm on the market.</h3>
+							</a>
+						</p>
+					</section>
+				</div>
+
+			
+		
+		<!-- </div>-->
+
+			
+			<script src="js/TweenLite.min.js"></script>
+			<script src="js/EasePack.min.js"></script>
+			<script src="js/rAF.js"></script>
+			<script src="js/demo-1.js"></script>
+
+
+		<!-- <div style = "background-color: #D4D8E0">
+			<p style = "height:1000px" style = "text-align:center">
+				testing
+			</p>
+		</div>
+ -->
+
+		
+		<!-- <div style = "background-image: url('img/goldbit.jpg')"> -->
+		
+			<div style = "background: linear-gradient(to right, #004e92, #000428)">"
+			
+					<section class = "footer" style = "color:white" >
+				
+						<p>
+						<b> © Copyright 2017 Tradetraks - All Rights Reserved.</b><br> </br> 
+						<!-- Miles McCloskey (Chief Executive Officer & Founder) <br><br>
+						Michael Greening (Chief Marketing Officer) <br><br>  
+						Grant Goodstein (Chief Operating Officer) <br><br>
+						Steven Simone (Senior Software Engineer)<br><br>
+						Abhey Singh (DevOps) <br><br> 
+						Steven Koller (Chief Information Officer) <br><br> 
+						Chase Moynihan (Director of Network Security)<br><br>
+						Alex Gonzalez (Senior Graphic Designer) <br><br>
+						Paul Miller (Software Engineer) <b><b> -->
+						</p>
+					
+				
+					
+					</section>
+			</div>		
+		
+</html>
