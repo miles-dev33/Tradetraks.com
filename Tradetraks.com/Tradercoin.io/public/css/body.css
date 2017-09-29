@@ -1,0 +1,86 @@
+
+.secondsection{
+    background: none;
+}
+
+
+.columnsbackround1 {
+	column-count: 3;
+	column-gap: 3.33%;
+	column-width: 30%;
+	background: rgba(55, 111, 189, 0.25);
+	
+	
+    
+}
+body {
+	background-image: url('../img/vectorbackground2.jpg');
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+	color: #FFFFFF;
+	font-weight: 400;
+	font-size: 1em;
+	line-height: 1.25;
+	font-family: 'Raleway', Calibri, Arial, sans-serif;
+}
+
+a, button {
+	outline: none;
+}
+
+a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: #FFFFFF;
+}
+
+section {
+	padding: 1em;
+	text-align: center;
+}
+
+p.ref {
+	text-align: center;
+	padding: 2em 1em;
+}
+
+.teampage{
+	
+	column-count: 3;
+	column-gap: 3.33%;
+	column-width: 30%;
+	
+
+}
+
+.artworks {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.artwork {
+  display: flex;
+}
+
+.artwork .artwork-piece {
+  padding: 8% 0 8% 23.5%;
+  background: #FFFFFF;
+  width: 50%;
+}
+
+.artwork figure {
+  position: relative;
+  vertical-align: middle;
+  padding: 50% 10%;
+  background: none;
+}
+
+.artwork .artwork-description {
+  background: #26223e;
+  width: 50%;
+  padding: 11.25em 10em 11.5em;
+}
