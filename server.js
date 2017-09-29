@@ -275,7 +275,7 @@ const cc = require('cryptocompare')
 //Creates the web app that is going to be served
 var app = express();
 //declars the port- NOTE - This is to be changed to the port number that our hosting server uses after we are done testing all of our sites features.
-var PORT = 8080;
+var PORT = process.env.PORT || 8080;
 //These to lines connect to the database this is the port number of our mongoDB
 // mongoose.Promise = global.Promise;
 // mongoose.connect("mongodb://localhost:27017/tradetraks");
@@ -330,12 +330,12 @@ app.get("/", function(req, res)
 
 
 
-// app.get("/login", function(req, res)
-// {
+app.get("/login", function(req, res)
+{
 
-//     res.sendFile(path.join(__dirname, "home.html"));
+    res.sendFile(path.join(__dirname, "home.html"));
 
-// });
+});
 
 
 
@@ -344,6 +344,7 @@ app.get("/", function(req, res)
 
 
 app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/js')));
 
 
 // var publicPath = path.join(__dirname, 'public');
@@ -353,7 +354,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 
 
-app.get("/var/www/html/currentprices", function(req, res) 
+app.get("public/currentprices", function(req, res) 
 
 {
 
