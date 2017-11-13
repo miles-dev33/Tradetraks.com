@@ -40,6 +40,8 @@ a:hover, a:focus {
 section {
 	padding: 1em;
 	text-align: center;
+	color: white;
+
 }
 
 p.ref {

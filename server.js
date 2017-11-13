@@ -1,156 +1,110 @@
 
-    //   //adding users
-    //   var passport = require('passport')
-    //   , LocalStrategy = require('passport-local').Strategy;
-      
+  //   var LocalStrategy   = require('passport-local').Strategy,
+  //   async = require('async');
   
-    //   app.configure(function() {
-    //       app.use(express.static('public'));
-    //       app.use(express.cookieParser());
-    //       app.use(express.bodyParser());
-    //       app.use(express.session({ secret: 'keyboard cat' }));
-    //       app.use(passport.initialize());
-    //       app.use(passport.session());
-    //       app.use(app.router);
-    //     });
+  // // Create a list of users just for demo.
+  // // In reality, you will probably query a database
+  // // to fetch this user
+  // var users = {
+  //   'one@example.com': {
+  //     id: 'userOne',
+  //     password: 'one',
+  //     email: 'one@example.com'
+  //   },
+  //   'two@example.com': {
+  //     id: 'userTwo',
+  //     password: 'two',
+  //     email: 'one@example.com'
+  //   }
+  // };
   
-    //     var session = require("express-session"),
-    //     bodyParser = require("body-parser");
-    //        app.use(express.static("public"));
-    //        app.use(session({ secret: "cats" }));
-    //        app.use(bodyParser.urlencoded({ extended: false }));
-    //        app.use(passport.initialize());
-    //        app.use(passport.session());
+  // function createAccount (newUser, callback) {
+  //     // Call API to create account
+  //     users[newUser.email] = newUser;
+  //     callback(null, newUser);
+  // }
   
+  // // Invokes callback with a non-empty object if email already exists, null otherwise
+  // function findExistingEmail (email, callback) {
+  //     // Call API to check if the email already exists
+  //     if(users[email]) {
+  //       callback({err: 'Email Already Exists'});
+  //     } else {
+  //       callback(null, null);
+  //     }
+  // }
   
-    //   passport.use(new LocalStrategy(
-    //   function(username, password, done) {
-    //     User.findOne({ username: username }, function(err, user) {
-    //       if (err) { return done(err); }
-    //       if (!user) {
-    //         return done(null, false, { message: 'Incorrect username.' });
-    //       }
-    //       if (!user.validPassword(password)) {
-    //         return done(null, false, { message: 'Incorrect password.' });
-    //       }
-    //       return done(null, user);
-    //     });
-    //   }
-    //   ));
+  // module.exports = function (passport) {
+  
+  //   passport.serializeUser(function(user, done) {
+  //     done(null, user.email); // This is what passport will save in the session/cookie
+  //   });
+  
+  //   passport.deserializeUser(function(email, done) {
+  //     // Use the email saved in the session earlier
+  //     // to fetch the actual user
+  //     var user = users[email];
+  //     done(null, user);
+  //   });
+  
+  //   // We name our strategy 'local-login'.
+  //   // You can use any name you wish
+  //   // This is the name you will refer to later in a route
+  //   // that handles the login
+  //   passport.use('local-login', new LocalStrategy({
+  //       usernameField : 'email',
+  //       passwordField : 'password',
+  //       passReqToCallback : true
+  //   },
+  //   function(req, email, password, done) {
+  //     if(users[email] && users[email].password === password) {
+  //       return done(null, users[email]);
+  //     } else {
+  //       done(null, false, req.flash('message', 'Invalid email or password'));
+  //     }
+  //   }));
+  
+  //   passport.use('local-signup',
+  //     new LocalStrategy({
+  //       usernameField : 'email',
+  //         passwordField : 'password',
+  //         passReqToCallback : true // Pass back the entire request to the callback
+  //       }, function (req, email, password, done) {
+  
+  //         process.nextTick(function() {
+  
+  //           async.auto({
+  //             doesEmailAlreadyExist: function (cb, results) {
+  //               findExistingEmail(email, cb);
+  //             },
+  //             newAccount: ['doesEmailAlreadyExist',
+  //               function (cb, results) {
+  
+  //                 var newUser = {
+  //                   email: email,
+  //                   password: password
+  //                 };
+  //                 createAccount(newUser, cb);
+  //               }
+  //             ]
+  //           }, function (err, results) {
+  //             if (err) {
+  //               done(null, false, req.flash('signupMessage', err.message));
+  //             } else {
+  //               done(null, results.newAccount);
+  //             }
+  //           });
+  
+  //         });
+  //     })
+  //   );
+  
+  // };
+  
 
-    // app.post('/login',
-    // passport.authenticate('local', { successRedirect: '/',
-    //                                  failureRedirect: '/home.tml',
-    //                                  failureFlash: true })
-    // );
-   
-      
-    //   passport.authenticate('local', { failureFlash: 'Invalid username or password.' });
-    //   passport.authenticate('local', { successFlash: 'Welcome!' });
-  
+  //end of new
 
-    var LocalStrategy   = require('passport-local').Strategy,
-    async = require('async');
-  
-  // Create a list of users just for demo.
-  // In reality, you will probably query a database
-  // to fetch this user
-  var users = {
-    'one@example.com': {
-      id: 'userOne',
-      password: 'one',
-      email: 'one@example.com'
-    },
-    'two@example.com': {
-      id: 'userTwo',
-      password: 'two',
-      email: 'one@example.com'
-    }
-  };
-  
-  function createAccount (newUser, callback) {
-      // Call API to create account
-      users[newUser.email] = newUser;
-      callback(null, newUser);
-  }
-  
-  // Invokes callback with a non-empty object if email already exists, null otherwise
-  function findExistingEmail (email, callback) {
-      // Call API to check if the email already exists
-      if(users[email]) {
-        callback({err: 'Email Already Exists'});
-      } else {
-        callback(null, null);
-      }
-  }
-  
-  module.exports = function (passport) {
-  
-    passport.serializeUser(function(user, done) {
-      done(null, user.email); // This is what passport will save in the session/cookie
-    });
-  
-    passport.deserializeUser(function(email, done) {
-      // Use the email saved in the session earlier
-      // to fetch the actual user
-      var user = users[email];
-      done(null, user);
-    });
-  
-    // We name our strategy 'local-login'.
-    // You can use any name you wish
-    // This is the name you will refer to later in a route
-    // that handles the login
-    passport.use('local-login', new LocalStrategy({
-        usernameField : 'email',
-        passwordField : 'password',
-        passReqToCallback : true
-    },
-    function(req, email, password, done) {
-      if(users[email] && users[email].password === password) {
-        return done(null, users[email]);
-      } else {
-        done(null, false, req.flash('message', 'Invalid email or password'));
-      }
-    }));
-  
-    passport.use('local-signup',
-      new LocalStrategy({
-        usernameField : 'email',
-          passwordField : 'password',
-          passReqToCallback : true // Pass back the entire request to the callback
-        }, function (req, email, password, done) {
-  
-          process.nextTick(function() {
-  
-            async.auto({
-              doesEmailAlreadyExist: function (cb, results) {
-                findExistingEmail(email, cb);
-              },
-              newAccount: ['doesEmailAlreadyExist',
-                function (cb, results) {
-  
-                  var newUser = {
-                    email: email,
-                    password: password
-                  };
-                  createAccount(newUser, cb);
-                }
-              ]
-            }, function (err, results) {
-              if (err) {
-                done(null, false, req.flash('signupMessage', err.message));
-              } else {
-                done(null, results.newAccount);
-              }
-            });
-  
-          });
-      })
-    );
-  
-  };
-  
+
 
 
 
@@ -197,6 +151,9 @@ const cc = require('cryptocompare')
 //         })
 //         .catch(console.error)
 // },1000);
+
+
+
 
 // setInterval(function() 
 // {
@@ -354,18 +311,18 @@ app.use(express.static(path.join(__dirname, '/js')));
 
 
 
-app.get("public/currentprices", function(req, res) 
+// app.get("public/currentprices", function(req, res) 
+// {
 
-{
+//     res.sendFile(path.join(__dirname, "public/apidata/analysis/BTC/index.html"));
 
-    res.sendFile(path.join(__dirname, "./public/sample-template-advanced.html"));
+// });
 
-});
+//new
+//public/apidata/analysis/BTC/index.html
 
-
-
-
-
+//old
+//public/sample-template-advanced.html
 
 
 // Starts the server to begin listening

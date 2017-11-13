@@ -40,11 +40,13 @@ var subscription;
 
 
 //CHANGE WHICH CRYPTO IS BEING STREAMED HERE
-$.getJSON( "https://min-api.cryptocompare.com/data/subs?fsym=BTC&tsyms=USD", function( data ) {
+$.getJSON( "https://min-api.cryptocompare.com/data/subs?fsym=ETH&tsyms=USD", function( data ) {
  subscription = data['USD']['TRADES'];
  socket.emit('SubAdd', {subs:subscription} );
  $('.message').innerHTML = 'Streaming...'	
 });
+
+
 
 socket.on("m", function(message){
 	var messageType = message.substring(0, message.indexOf("~"));
